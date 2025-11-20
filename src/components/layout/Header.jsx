@@ -1,5 +1,6 @@
 import React from 'react';
 import { BookOpen, TrendingUp, Clock, Calendar, Target } from 'lucide-react';
+import { ThemeToggle } from "../ThemeToggle"
 
 export default function Header({ activeView, setActiveView }) {
   const navItems = [
@@ -37,6 +38,7 @@ export default function Header({ activeView, setActiveView }) {
               </button>
             ))}
           </nav>
+          <ThemeToggle />
         </div>
       </div>
     </header>

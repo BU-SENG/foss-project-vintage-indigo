@@ -1,41 +1,47 @@
- This specific branch, `Frontend-patch-1`, implements the foundational structure and styling for the application's user interface.
-* About
-A Study Planner Application  ( Study Smart )
-A simple and effective Study Planner application designed to help students organize their study schedules, track subjects, and manage time efficiently.
+This specific branch, feature/theme-selection, implements the Dark/Light Mode toggle for the Study Smart application, enhancing the user interface and user experience.
 
- Technologies Used
-Frontend: React js and Tailwind Css
-  Features
-1. Creating a study Session
-2. Setting Goals
-3. Viewing your Schedule
-4. Course Management 
+* About  
+A Study Planner Application (Study Smart)  
+A simple and effective Study Planner application designed to help students organize their study schedules, track subjects, and manage time efficiently. This branch adds a Dark/Light theme toggle feature to improve accessibility and usability.
+
+Technologies Used  
+Frontend: React.js and Tailwind CSS
+
+Features
+- Creating a study session
+- Setting goals
+- Viewing your schedule
+- Course management
+- Dark/Light Mode toggle
 
 You need the following software installed:
+- Node.js (LTS version recommended)
+- Git
 
-* [Node.js](https://nodejs.org/en/) (LTS version recommended)
-* Git
+Steps
 
- ### Steps
+1. Clone the Repository:  
+```bash
+git clone https://github.com/BU-SENG/foss-project-vintage-indigo.git
 
-1.  **Clone the Repository:**
-    ```bash
-` git clone https://github.com/BU-SENG/foss-project-vintage-indigo.git`
+```
+Navigate to the Project Directory:
+```bash
+cd foss-project-vintage-indigo
 
-2.  **Navigate to the Project Directory:**
-    ```bash
-`  cd foss-project-vintage-indigo
-`
-3.  **Install Dependencies:**
-    ```bash
-    npm install
-    ```
+```
+Switch to this branch:
+```bash
+git checkout feature/theme-selection
+```
 
-4.  **Start the Development Server:**
-    ```bash
-    npm start
-    ```
-    The application should now be accessible.
+Install Dependencies:
+```bash
+npm install
+```
+Start the Development Server:
+```bash
+npm start
+```
 
-    Author
-    Oyedeji Damian 
+The application should now be accessible with the Dark/Light Mode toggle feature.
