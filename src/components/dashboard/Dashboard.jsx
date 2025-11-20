@@ -2,6 +2,7 @@ import React from 'react';
 import { Clock, Check, BookOpen, Target } from 'lucide-react';
 import StatCard from './StatCard';
 import CourseProgressBar from './CourseProgressBar';
+import TodayProgressWidget from './TodayProgressWidget'; // Add this import
 
 export default function Dashboard({ courses, sessions, goals }) {
   const completedSessions = sessions.filter(s => s.completed);
@@ -14,6 +15,13 @@ export default function Dashboard({ courses, sessions, goals }) {
       <div className="flex items-center justify-between">
         <h2 className="text-3xl font-bold text-gray-900">Dashboard</h2>
       </div>
+
+      {/* Today's Progress Widget - Add this section */}
+      <TodayProgressWidget 
+        sessions={sessions} 
+        goals={goals} 
+        courses={courses} 
+      />
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
