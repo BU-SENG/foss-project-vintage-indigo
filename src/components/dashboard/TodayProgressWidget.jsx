@@ -28,7 +28,7 @@ export default function TodayProgressWidget({ sessions, goals, courses }) {
     });
 
     return (
-        <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg shadow-lg p-6 text-white">
+        <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg shadow-lg p-6 text-white dark:from-indigo-600 dark:to-purple-700">
             <div className="flex items-center justify-between mb-4">
                 <h2 className="text-xl font-bold">Today's Progress</h2>
                 <Calendar className="w-6 h-6 opacity-80" />

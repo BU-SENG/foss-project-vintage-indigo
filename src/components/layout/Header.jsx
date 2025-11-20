@@ -1,7 +1,9 @@
 import React from 'react';
 import { BookOpen, TrendingUp, Clock, Calendar, Target } from 'lucide-react';
+import { useTheme } from '../contexts/ThemeContext'; 
 
 export default function Header({ activeView, setActiveView }) {
+  const { isDark, toggleTheme } = useTheme();
   const navItems = [
     { id: 'dashboard', label: 'Dashboard', icon: TrendingUp },
     { id: 'sessions', label: 'Study Sessions', icon: Clock },
@@ -37,6 +39,14 @@ export default function Header({ activeView, setActiveView }) {
               </button>
             ))}
           </nav>
+{/* Dark Mode Toggle Button */}
+          <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+              aria-label="Toggle dark mode"
+            >
+              {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
         </div>
       </div>
     </header>

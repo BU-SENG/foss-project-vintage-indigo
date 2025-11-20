@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Header from './components/layout/Header';
 import Dashboard from './components/dashboard/Dashboard';
 import SessionsView from './components/sessions/SessionsView';
@@ -95,43 +96,45 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Header activeView={activeView} setActiveView={setActiveView} />
-      
-      <main className="max-w-7xl mx-auto px-4 py-8">
-        {activeView === 'dashboard' && (
-          <Dashboard courses={courses} sessions={sessions} goals={goals} />
-        )}
+    <ThemeProvider>
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+        <Header activeView={activeView} setActiveView={setActiveView} />
         
-        {activeView === 'sessions' && (
-          <SessionsView 
-            courses={courses}
-            sessions={sessions}
-            addSession={addSession}
-            toggleSessionComplete={toggleSessionComplete}
-            deleteSession={deleteSession}
-          />
-        )}
-        
-        {activeView === 'calendar' && (
-          <CalendarView sessions={sessions} courses={courses} />
-        )}
-        
-        {activeView === 'goals' && (
-          <GoalsView 
-            courses={courses}
-            goals={goals}
-            addGoal={addGoal}
-            toggleGoalComplete={toggleGoalComplete}
-            deleteGoal={deleteGoal}
-            sessions={sessions}
-          />
-        )}
-        
-        {activeView === 'courses' && (
-          <CoursesView courses={courses} addCourse={addCourse} />
-        )}
-      </main>
-    </div>
+        <main className="max-w-7xl mx-auto px-4 py-8">
+          {activeView === 'dashboard' && (
+            <Dashboard courses={courses} sessions={sessions} goals={goals} />
+          )}
+          
+          {activeView === 'sessions' && (
+            <SessionsView 
+              courses={courses}
+              sessions={sessions}
+              addSession={addSession}
+              toggleSessionComplete={toggleSessionComplete}
+              deleteSession={deleteSession}
+            />
+          )}
+          
+          {activeView === 'calendar' && (
+            <CalendarView sessions={sessions} courses={courses} />
+          )}
+          
+          {activeView === 'goals' && (
+            <GoalsView 
+              courses={courses}
+              goals={goals}
+              addGoal={addGoal}
+              toggleGoalComplete={toggleGoalComplete}
+              deleteGoal={deleteGoal}
+              sessions={sessions}
+            />
+          )}
+          
+          {activeView === 'courses' && (
+            <CoursesView courses={courses} addCourse={addCourse} />
+          )}
+        </main>
+      </div>
+    </ThemeProvider>
   );
 }

@@ -14,7 +14,7 @@ export default function Dashboard({ courses, sessions, goals }) {
     return (
         <div className="space-y-6">
             <div className="flex items-center justify-between">
-                <h2 className="text-3xl font-bold text-gray-900">Dashboard</h2>
+                <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Dashboard</h2>
             </div>
 
             {/* Today's Progress Widget */}
@@ -52,8 +52,8 @@ export default function Dashboard({ courses, sessions, goals }) {
             <ProgressChart sessions={sessions} courses={courses} />
 
             {/* Course Progress */}
-            <div className="bg-white rounded-lg shadow p-6">
-                <h3 className="text-xl font-semibold mb-4">Study Hours by Course</h3>
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 transition-colors duration-200">
+                <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Study Hours by Course</h3>
                 <div className="space-y-4">
                     {courses.map(course => {
                         const courseCompletedSessions = completedSessions.filter(
@@ -71,23 +71,23 @@ export default function Dashboard({ courses, sessions, goals }) {
             </div>
 
             {/* Recent Sessions */}
-            <div className="bg-white rounded-lg shadow p-6">
-                <h3 className="text-xl font-semibold mb-4">Recent Activity</h3>
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 transition-colors duration-200">
+                <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Recent Activity</h3>
                 <div className="space-y-3">
                     {completedSessions.slice(-5).reverse().map(session => {
                         const course = courses.find(c => c.id === session.courseId);
                         return (
-                            <div key={session.id} className="flex items-center justify-between py-2 border-b last:border-b-0">
+                            <div key={session.id} className="flex items-center justify-between py-2 border-b dark:border-gray-600 last:border-b-0">
                                 <div className="flex items-center space-x-3">
                                     <div className={`w-3 h-3 rounded-full ${course?.color}`}></div>
                                     <div>
-                                        <p className="font-medium text-gray-900">{session.title}</p>
-                                        <p className="text-sm text-gray-500">{course?.name}</p>
+                                        <p className="font-medium text-gray-900 dark:text-white">{session.title}</p>
+                                        <p className="text-sm text-gray-500 dark:text-gray-400">{course?.name}</p>
                                     </div>
                                 </div>
                                 <div className="text-right">
-                                    <p className="text-sm font-medium text-gray-900">{session.duration}h</p>
-                                    <p className="text-xs text-gray-500">
+                                    <p className="text-sm font-medium text-gray-900 dark:text-white">{session.duration}h</p>
+                                    <p className="text-xs text-gray-500 dark:text-gray-400">
                                         {new Date(session.scheduledDate).toLocaleDateString()}
                                     </p>
                                 </div>
@@ -95,7 +95,7 @@ export default function Dashboard({ courses, sessions, goals }) {
                         );
                     })}
                     {completedSessions.length === 0 && (
-                        <p className="text-gray-500 text-center py-4">No completed sessions yet</p>
+                        <p className="text-gray-500 dark:text-gray-400 text-center py-4">No completed sessions yet</p>
                     )}
                 </div>
             </div>
