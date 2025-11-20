@@ -1,7 +1,12 @@
 import React from 'react';
-import { BookOpen, TrendingUp, Clock, Calendar, Target } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { BookOpen, TrendingUp, Clock, Calendar, Target, LogOut, User } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
 
 export default function Header({ activeView, setActiveView }) {
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
   const navItems = [
     { id: 'dashboard', label: 'Dashboard', icon: TrendingUp },
     { id: 'sessions', label: 'Study Sessions', icon: Clock },
@@ -9,6 +14,11 @@ export default function Header({ activeView, setActiveView }) {
     { id: 'goals', label: 'Goals', icon: Target },
     { id: 'courses', label: 'Courses', icon: BookOpen }
   ];
+
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
 
   return (
     <header className="bg-white shadow-sm">
@@ -37,6 +47,20 @@ export default function Header({ activeView, setActiveView }) {
               </button>
             ))}
           </nav>
+
+          <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2 text-gray-700">
+              <User className="w-5 h-5" />
+              <span className="font-medium">{user?.username || 'User'}</span>
+            </div>
+            <button
+              onClick={handleLogout}
+              className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-red-100 text-red-700 hover:bg-red-200 transition-colors"
+            >
+              <LogOut className="w-5 h-5" />
+              <span className="font-medium">Logout</span>
+            </button>
+          </div>
         </div>
       </div>
     </header>
